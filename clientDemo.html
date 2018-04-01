@@ -1,0 +1,61 @@
+
+<style>
+  .phone {
+    display: inline-block;
+    background-image: url(devices-sprite.jpg);
+    background-size: 467px;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-position-x: 50%;
+    background-position-y: 100%;
+    background-repeat-x: no-repeat;
+    background-repeat-y: no-repeat;
+    line-height: 20px;
+    height: 800px;
+    width: 467px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: rgb(51, 51, 51);
+    mix-blend-mode: multiply;
+    box-sizing: border-box;
+    
+  }
+
+  .phone iframe {
+    height: 622px;
+    width: 350px;
+    border: 0;
+    margin: auto;
+    margin-top: 72px;
+    background-color: white;
+  }
+  
+  iframe {
+    display: block;
+    -webkit-transform: scale(1);
+    -webkit-transform-origin: 0 0;
+  }
+
+  body {
+    margin-top: 10%;
+    background-color: white;
+  }
+</style>
+
+<script>
+  window.phoneCount = 0;
+  window.createPhones = setInterval(() => {
+    if (window.phoneCount < 4) {
+      let phone = document.createElement('div');
+      phone.className = 'phone';
+      let frame = document.createElement('iframe');
+      frame.src = 'http://127.0.0.1:8000/index.html';
+      phone.appendChild(frame);
+      document.body.appendChild(phone);
+      window.phoneCount += 1;
+    } else {
+      clearInterval(window.createPhones);
+    }
+  }, 400);
+</script>
