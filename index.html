@@ -18,7 +18,7 @@
         height: auto;
         /*width:342px;*/
         width: 100%;
-        margin: 0px auto;
+        margin: 15% auto;
     }
 
     #clientIndex {
@@ -52,7 +52,7 @@
 
     socket.on('index', function(data) {
         index = data.index;
-        $('#clientIndex').html(index);
+        $('#clientIndex').html(index + 1);
     });
 
     socket.on('serial', function(data) {
@@ -107,20 +107,3 @@
 </body>
 
 </html>
-<!-- <html>
-  <head>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  </head>
-  <body>
-    <script>
-      var socket = io.connect();
-
-      socket.on('serial', function(data) {
-        $('#control').html(data.control);
-      });
-      
-    </script>
-    <span id="control">??</span>
-  </body>
-</html> -->
